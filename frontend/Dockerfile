@@ -1,5 +1,6 @@
 # Stage 0, "build-stage", based on Node.js, to build and compile the frontend
-FROM tiangolo/node-frontend:10 as build-stage
+#FROM tiangolo/node-frontend:10 as build-stage
+FROM altereg0/node-frontend:latest as build-stage
 
 WORKDIR /app
 
@@ -9,7 +10,7 @@ RUN npm install
 
 COPY ./ /app/
 
-ARG FRONTEND_ENV=production
+ARG FRONTEND_ENV=development
 
 ENV VUE_APP_ENV=${FRONTEND_ENV}
 
